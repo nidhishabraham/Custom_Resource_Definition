@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: demo-daemonset
+  namespace: demo
+spec:
+  selector:
+    matchLabels:
+      name: demo
+  template:
+    metadata:
+      labels:
+        name: demo
+    spec:
+      containers:
+      - name: demo-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
